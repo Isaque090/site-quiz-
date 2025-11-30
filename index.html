@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        header {
+            justify-items: center;
+            margin-top: 50px;
+        }
+
+        body {
+            height: 100vh;
+            background-color: #ffaeae !important;
+            color: white !important;
+        }
+
+        .resposta:hover {
+            background-color: blue;
+            color: white !important;
+            transition: all 0.7s ease;
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.5) !important;
+        }
+
+        .resposta {
+            cursor: pointer;
+            transition: all 0.7s ease;
+            margin-top: 20px;
+            color: white !important;
+            background-color: rgba(255, 255, 255, 0.12) !important;
+        }
+
+        .todo {
+            width: 50%;
+            background-color: #e58989 !important;
+        }
+
+        h5 {
+            align-items: center;
+
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="#">Inicio</a>
+                <a class="nav-item nav-link" href="#">Quiz</a>
+
+
+            </div>
+        </div>
+    </nav>
+    <header>
+        <h1>Quiz do Livro</h1>
+        <h3 id="pergunta"></h3>
+
+        <div class="card todo" id="alternativas">
+            <div class="card-body">
+                <div class="card resposta" onclick="verificar(this,false)">
+                    <div class="card-body">
+                        <h5 id="alternativa1"></h5>
+                    </div>
+                </div>
+                <div class="card resposta" onclick="verificar(this,true)">
+                    <div class="card-body">
+                        <h5 id="alternativa2"> </h5>
+                    </div>
+                </div>
+                <div class="card resposta" onclick="verificar(this,false)">
+                    <div class="card-body">
+                        <h5 id="alternativa3"> </h5>
+                    </div>
+                </div>
+                <div class="card resposta" onclick="verificar(this,false)">
+                    <div class="card-body">
+                        <h5 id="alternativa4"></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+
+    <script>
+        let contador=0;
+let perguntaatual=0;
+        function verificar(elemento, certo) {
+
+            if (certo) {
+                alert('resposta certa');
+                contador++;
+                perguntaatual++;
+                //logica de mudar a pergunta 
+            if(perguntaatual===1){
+                    a = "Padeira";
+                b = "Costureira";
+                c = "Camareira ";
+                d = "Garçonete";
+                let pergunta = "A Aurélia é filha de uma?";
+                document.getElementById('pergunta').innerHTML = pergunta;
+                document.getElementById('alternativa1').innerHTML = a;
+
+
+                document.getElementById('alternativa2').innerHTML = b;
+
+                document.getElementById('alternativa3').innerHTML = c;
+
+                document.getElementById('alternativa4').innerHTML = d;
+                document.getElementById('alternativa1').innerHTML = a;
+
+
+
+                document.getElementById('alternativa1').parentElement.parentElement.onclick = function () { verificar(this, false); };
+                document.getElementById('alternativa2').parentElement.parentElement.onclick = function () { verificar(this, false); };
+                document.getElementById('alternativa3').parentElement.parentElement.onclick = function () { verificar(this, true); };
+                document.getElementById('alternativa4').parentElement.parentElement.onclick = function () { verificar(this, false); };
+            }
+       
+
+               else if(perguntaatual===2){
+                    a = " Eu😤";
+                b = " A Adelaide";
+                c = "Um mendigo";
+                d = " A Aurélia";
+                let pergunta = "Quem foi o primeiro amor do Fernando?";
+                document.getElementById('pergunta').innerHTML = pergunta;
+                document.getElementById('alternativa1').innerHTML = a;
+
+
+                document.getElementById('alternativa2').innerHTML = b;
+
+                document.getElementById('alternativa3').innerHTML = c;
+
+                document.getElementById('alternativa4').innerHTML = d;
+                document.getElementById('alternativa1').innerHTML = a;
+
+
+                document.getElementById('alternativa1').parentElement.parentElement.onclick = function () { verificar(this, false); };
+                document.getElementById('alternativa2').parentElement.parentElement.onclick = function () { verificar(this, false); };
+                document.getElementById('alternativa3').parentElement.parentElement.onclick = function () { verificar(this, false); };
+                document.getElementById('alternativa4').parentElement.parentElement.onclick = function () { verificar(this, true); };
+
+            }
+                 else if(perguntaatual===3){
+                    a = "A herança de sua vó";
+                b = "As notícias de suas caridades";
+                c = "A volta de uma guerra";
+                d = "Sua personalidade (OO)";
+                let pergunta = "O que fez as pessoas olharem com outros olhos Para a Aurélia?"
+                document.getElementById('pergunta').innerHTML = pergunta;
+                document.getElementById('alternativa1').innerHTML = a;
+
+
+                document.getElementById('alternativa2').innerHTML = b;
+
+                document.getElementById('alternativa3').innerHTML = c;
+
+                document.getElementById('alternativa4').innerHTML = d;
+                document.getElementById('alternativa1').innerHTML = a;
+
+
+                document.getElementById('alternativa1').parentElement.parentElement.onclick = function () { verificar(this, true); };
+                document.getElementById('alternativa2').parentElement.parentElement.onclick = function () { verificar(this, false); };
+                document.getElementById('alternativa3').parentElement.parentElement.onclick = function () { verificar(this, false); };
+                document.getElementById('alternativa4').parentElement.parentElement.onclick = function () { verificar(this, false); };
+
+            }
+        
+                else if(perguntaatual===4){
+   a = contador;
+                b = contador;
+                c = contador;
+                d = " A Aurélia";
+                let pergunta = "Quem foi o primeiro amor do Fernando?";
+                document.getElementById('pergunta').innerHTML = pergunta;
+                document.getElementById('alternativa1').innerHTML = a;
+
+
+                document.getElementById('alternativa2').innerHTML = b;
+
+                document.getElementById('alternativa3').innerHTML = c;
+
+                document.getElementById('alternativa4').innerHTML = d;
+                document.getElementById('alternativa1').innerHTML = a;
+
+
+
+                document.getElementById('alternativa1').parentElement.parentElement.onclick = function () { verificar(this, false); };
+                document.getElementById('alternativa2').parentElement.parentElement.onclick = function () { verificar(this, false); };
+                document.getElementById('alternativa3').parentElement.parentElement.onclick = function () { verificar(this, false); };
+                document.getElementById('alternativa4').parentElement.parentElement.onclick = function () { verificar(this, true); };
+                }
+            
+
+
+            }
+            else {
+                alert('resposta errada');
+                
+                perguntaatual++;
+                  if(perguntaatual===1){
+                    a = "Padeira";
+                b = "Costureira";
+                c = "Camareira ";
+                d = "Garçonete";
+                let pergunta = "A Aurélia é filha de uma?";
+                document.getElementById('pergunta').innerHTML = pergunta;
+                document.getElementById('alternativa1').innerHTML = a;
+
+
+                document.getElementById('alternativa2').innerHTML = b;
+
+                document.getElementById('alternativa3').innerHTML = c;
+
+                document.getElementById('alternativa4').innerHTML = d;
+                document.getElementById('alternativa1').innerHTML = a;
+
+
+
+                document.getElementById('alternativa1').parentElement.parentElement.onclick = function () { verificar(this, false); };
+                document.getElementById('alternativa2').parentElement.parentElement.onclick = function () { verificar(this, false); };
+                document.getElementById('alternativa3').parentElement.parentElement.onclick = function () { verificar(this, true); };
+                document.getElementById('alternativa4').parentElement.parentElement.onclick = function () { verificar(this, false); };
+            }
+            else if(perguntaatual===2){
+                    a = " Eu😤";
+                b = " A Adelaide";
+                c = "Um mendigo";
+                d = " A Aurélia";
+                let pergunta = "Quem foi o primeiro amor do Fernando?";
+                document.getElementById('pergunta').innerHTML = pergunta;
+                document.getElementById('alternativa1').innerHTML = a;
+
+
+                document.getElementById('alternativa2').innerHTML = b;
+
+                document.getElementById('alternativa3').innerHTML = c;
+
+                document.getElementById('alternativa4').innerHTML = d;
+                document.getElementById('alternativa1').innerHTML = a;
+
+
+
+                document.getElementById('alternativa1').parentElement.parentElement.onclick = function () { verificar(this, false); };
+                document.getElementById('alternativa2').parentElement.parentElement.onclick = function () { verificar(this, false); };
+                document.getElementById('alternativa3').parentElement.parentElement.onclick = function () { verificar(this, false); };
+                document.getElementById('alternativa4').parentElement.parentElement.onclick = function () { verificar(this, true); };
+
+            }
+                     else if(perguntaatual===3){
+   a = contador;
+                b = contador;
+                c = contador;
+                d = " A Aurélia";
+                let pergunta = "Quem foi o primeiro amor do Fernando?";
+                document.getElementById('pergunta').innerHTML = pergunta;
+                document.getElementById('alternativa1').innerHTML = a;
+
+
+                document.getElementById('alternativa2').innerHTML = b;
+
+                document.getElementById('alternativa3').innerHTML = c;
+
+                document.getElementById('alternativa4').innerHTML = d;
+                document.getElementById('alternativa1').innerHTML = a;
+
+
+
+                document.getElementById('alternativa1').parentElement.parentElement.onclick = function () { verificar(this, false); };
+                document.getElementById('alternativa2').parentElement.parentElement.onclick = function () { verificar(this, false); };
+                document.getElementById('alternativa3').parentElement.parentElement.onclick = function () { verificar(this, false); };
+                document.getElementById('alternativa4').parentElement.parentElement.onclick = function () { verificar(this, true); };
+                }
+          
+
+
+            }
+             
+            
+            }
+            
+
+        
+        let pergunta = "Quem é a Senhora do livro?";
+        document.getElementById('pergunta').innerHTML = pergunta;
+        let a = "O fernando";
+        document.getElementById('alternativa1').innerHTML = a;
+
+
+        let b = "a Aurélia";
+        document.getElementById('alternativa2').innerHTML = b;
+        let c = "A Adelaide";
+        document.getElementById('alternativa3').innerHTML = c;
+        let d = "a D. Firmina";
+        document.getElementById('alternativa4').innerHTML = d;
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
